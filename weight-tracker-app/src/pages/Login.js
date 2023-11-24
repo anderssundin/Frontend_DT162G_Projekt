@@ -51,7 +51,7 @@ const Login = () => {
                     isLoggedIn: true
                   }));
                
-                  // Push user to dashboard
+                  // Navigate user to dashboard
                   navigate("/dashboard");
             } else {
                 console.log('Fel användarnamn eller lösernord');
