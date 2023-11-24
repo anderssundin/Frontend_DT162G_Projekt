@@ -92,7 +92,7 @@ const Login = () => {
                         <input type="password" id="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)} />
                         <br />
                         <div className="flex justify-center items-center ">
-                            <input type="submit" value={"Logga in"} className="text-sm bg-lime-600 rounded-md px-2 py-1 mx-4 my-2 transition-all hover:cursor-pointer hover:bg-lime-500" />
+                            <input type="submit" value={"Logga in"} className="text-sm bg-lime-600 rounded-sm px-2 py-1 mx-4 my-2 transition-all hover:cursor-pointer hover:bg-lime-500" />
                         </div>
                     </form>
                 </div>
