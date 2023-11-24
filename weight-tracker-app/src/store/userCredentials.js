@@ -3,8 +3,8 @@ import React, { useState, createContext } from "react";
 const initialUserState = {
     name: "",
     email:"",
-    startWeight: "",
-    goalWeight: "",
+    startWeight: 0,
+    goalWeight: 0,
     isLoggedIn: false
 }
 
