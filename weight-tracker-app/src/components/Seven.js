@@ -1,5 +1,8 @@
 import { useState, useContext, useEffect } from "react";
 import { Context } from '../store/userCredentials';
+import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
+import DeleteForeverOutlinedIcon from '@mui/icons-material/DeleteForeverOutlined';
+
 
 const Seven = () => {
     const [lastSeven, setLastSeven] = useState(null);
@@ -56,16 +59,22 @@ const Seven = () => {
 
     // See if lastseven is set before maping over array
     const listItems = lastSeven && lastSeven.map((lastSeven) =>
-        <li key={lastSeven._id}>{lastSeven.timestamp.slice(0, 10)} {lastSeven.weight} <button>Red</button> <button>Rad</button></li>)
-
+        <div className=" bg-secondary-green flex  justify-around max-w-md my-2 py-2 rounded-md shadow-md font-bold" key={lastSeven._id}>
+            <div>{lastSeven.timestamp.slice(0, 10)}</div>
+            <div>Vikt: {lastSeven.weight}</div>
+            <div><button><EditOutlinedIcon></EditOutlinedIcon></button></div>
+            <div><button><DeleteForeverOutlinedIcon></DeleteForeverOutlinedIcon></button></div>
+        </div>
+    );
 
     return (
 
 
-        <div className=" w-52 h-52 bg-slate-50">
-            <ul>
+        <div className=" p-10 bg-slate-50 w-2/5 rounded-md shadow-md">
+            <h2 className="mb-3 text-2xl font-bold">Senaste 7 loggarna</h2>
+            <div className="flex flex-col">
                 {listItems}
-            </ul>
+            </div>
         </div>
     );
 }
