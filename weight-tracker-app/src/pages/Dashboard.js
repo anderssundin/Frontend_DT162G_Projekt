@@ -1,7 +1,15 @@
+import { useState } from 'react';
 import Navbar from '../components/Navbar';
 import Overview from '../components/Overview';
 import Seven from '../components/Seven';
 const Dashboard = () => {
+
+    const [updateSignal, setUpdateSignal] = useState(false);
+
+    const triggerUpdate = () => {
+        setUpdateSignal(!updateSignal);
+    }
+    
     return ( 
         <>
         <div className=' bg-dashboard-grey flex relative '>
@@ -9,9 +17,9 @@ const Dashboard = () => {
         <Navbar />
         </section>
         <main className='flex flex-1 flex-col'>
-        <Overview />
+        <Overview updateSignal={updateSignal}/>
         <section className=' flex flex-col md:flex-row justify-around'>
-        <Seven />
+        <Seven onUpdate={triggerUpdate} />
         
         </section>
         </main>

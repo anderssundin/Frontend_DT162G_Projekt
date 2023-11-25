@@ -1,7 +1,7 @@
 import { useState, useContext, useEffect } from "react";
 import { Context } from '../store/userCredentials';
 
-const Overview = () => {
+const Overview = ({ updateSignal }) => {
     const [userState, setUserState] = useContext(Context);
     const [weightProgress, setWeightProgress] = useState(null);
     const [userWeight, setUserWeight] = useState(0);
@@ -15,7 +15,7 @@ const Overview = () => {
     //Fetch data for latest weight
     //------------------------------
 
-    const url = 'http://localhost:3000/data';
+    const url = 'http://localhost:3000/data'; 
 
     useEffect(() => {
         const fetchData = async () => {
@@ -52,7 +52,7 @@ const Overview = () => {
 
         fetchData(); 
 
-    }, [userState.startWeight, userState.email]);
+    }, [userState.startWeight, userState.email, updateSignal]);
 
     return (  
         <div className="w-full">

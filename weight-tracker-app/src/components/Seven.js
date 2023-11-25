@@ -3,12 +3,14 @@ import { Context } from '../store/userCredentials';
 import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
 import DeleteForeverOutlinedIcon from '@mui/icons-material/DeleteForeverOutlined';
 
-const Seven = () => {
+const Seven = ({onUpdate}) => {
     const [lastSeven, setLastSeven] = useState(null);
     const URL = 'http://localhost:3000/data/userseven';
     const deleteURL = 'http://localhost:3000/data/delete';
+    const changeURL = 'http://localhost:3000/data/update';
     const [userState, setUserState] = useContext(Context);
     const [editValue, setEditValue] = useState(null);
+    const [newEditWeight, setNewEditWeight] = useState(null);
     const editIDRef = useRef(null)
 
     //---------------------
@@ -70,28 +72,68 @@ const Seven = () => {
         }
     };
 
+
+
     //----------------
     // POPULATE FORM
     //----------------
 
     const populateForm = (e) => {
-    const editID = e.currentTarget.dataset.id;
-    const editWeight = e.currentTarget.dataset.weight;
-    editIDRef.current = editID;
-    setEditValue(editWeight);
+        const editID = e.currentTarget.dataset.id;
+        const editWeight = e.currentTarget.dataset.weight;
+        editIDRef.current = editID;
+        setEditValue(editWeight);
     }
 
-//--------------------
-// SUBMIT NEW WEIGHT
-//--------------------
-    const submitEditWeight = (e) =>{
+    //-----------------------------
+    // SET NEW WEIGHT TO VARIABEL
+    //-----------------------------
+    const setNewWeight = (e) => {
+        setNewEditWeight(e.target.value);
+    }
+
+
+    //--------------------
+    // SUBMIT NEW WEIGHT
+    //--------------------
+    const submitEditWeight = async (e) => {
         e.preventDefault();
 
         // Get IDref
         const editID = editIDRef.current;
+
+        // Get new weight
+        const weight = newEditWeight;
         console.log(editID);
-     setEditValue(null);
-    } 
+
+        try {
+            const data = {
+                id: editID,
+                weight: weight
+            };
+
+            const response = await fetch(changeURL, {
+                method: 'PUT',
+                headers: {
+                    'Content-Type': 'application/json'
+                },
+                body: JSON.stringify(data)
+            });
+
+            if (response.ok) {
+
+                fetchData();
+
+                // Signal to dashboard
+                onUpdate();
+            } else {
+                console.log('Fel vid kontakt med databas');
+            }
+        } catch (error) {
+            console.error('Kunde inte hämata data:', error);
+        }
+        setEditValue(null);
+    };
 
     useEffect(() => {
         fetchData();
@@ -119,7 +161,7 @@ const Seven = () => {
                 {editValue && <div className="absolute top-[25%]  left-1/4 w-1/2 h-20 bg-gray-50">
                     <form onSubmit={submitEditWeight}>
                         <label htmlFor="editWeight">Ändra vikt:</label>
-                        <input type="number" id="editWeight" defaultValue={editValue} />
+                        <input type="number" id="editWeight" defaultValue={editValue} onChange={setNewWeight} />
                         <input type="submit" />
                     </form>
                 </div>}
