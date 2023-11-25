@@ -4,15 +4,15 @@ import Seven from '../components/Seven';
 const Dashboard = () => {
     return ( 
         <>
-        <div className=' bg-dashboard-grey flex '>
+        <div className=' bg-dashboard-grey flex relative '>
        <section className='relative left-0 top-0'>
         <Navbar />
         </section>
         <main className='flex flex-1 flex-col'>
         <Overview />
-        <section className=' flex flex-row justify-around'>
+        <section className=' flex flex-col md:flex-row justify-around'>
         <Seven />
-        <Seven />
+        
         </section>
         </main>
         </div>
