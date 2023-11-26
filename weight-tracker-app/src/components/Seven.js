@@ -140,7 +140,7 @@ const Seven = ({onUpdate}) => {
     }, [userState.email]);
 
     const listItems = lastSeven && lastSeven.map((lastSeven) =>
-        <div className="bg-secondary-green flex justify-around max-w-md my-2 py-2 rounded-md shadow-md font-bold" key={lastSeven._id}>
+        <div className="bg-secondary-green flex justify-around max-w-md my-2 py-2 rounded-md shadow-md font-bold w-full" key={lastSeven._id}>
             <div>{lastSeven.timestamp.slice(0, 10)}</div>
             <div>Vikt: {lastSeven.weight}</div>
             <div><button data-id={lastSeven._id} data-weight={lastSeven.weight} onClick={populateForm}><EditOutlinedIcon /></button></div>
@@ -152,7 +152,7 @@ const Seven = ({onUpdate}) => {
         <>
             <div className="p-10 bg-slate-50 my-4 md:my-0 md:w-2/5 rounded-md shadow-md">
                 <h2 className="mb-3 text-2xl font-bold">Senaste 7 loggarna</h2>
-                <div className="flex flex-col">
+                <div className="flex flex-col items-center">
                     {listItems}
                 </div>
             </div>

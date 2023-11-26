@@ -61,7 +61,7 @@ const Trend = ({ updateSignal, setUpdateSignal}) => {
                 <h2 className="mb-3 text-2xl font-bold">Trend</h2>
                 <div className="overflow-x-scroll">
 
-                    <XYPlot width={450} height={250}>
+                    <XYPlot width={600} height={250}>
                         <VerticalGridLines />
                         <HorizontalGridLines />
                         <XAxis title="Datum"
