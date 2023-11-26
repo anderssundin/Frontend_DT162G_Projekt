@@ -1,6 +1,22 @@
 import logo from '../images/logotyp.jpg';
-
+import { useContext } from "react";
+import { Context } from '../store/userCredentials';
+import { useNavigate, Link } from "react-router-dom";
 const Navbar = () => {
+
+    const navigate = useNavigate();
+    const [userState, setUserState] = useContext(Context);
+    const logout = () => {
+        setUserState(prevState => ({
+            ...prevState,
+            name: "",
+            email: "",
+            startWeight: "",
+            goalWeight: "",
+            isLoggedIn: false
+        }));
+        navigate("/");
+    }
     return (
         <div className='flex flex-col w-[250px]'>
            <div className="bg-primary-green">
@@ -12,7 +28,7 @@ const Navbar = () => {
             <nav className=' text-left ml-4'>
                 <ul>
                     <li className='my-4'>
-                        <a href="#">Alla registreringar</a>
+                    <Link to="/all-logs">Alla registreringar</Link>
                     </li>
                     <li className='my-4'>
                         <a href="#"> Mitt konto</a>
@@ -21,7 +37,7 @@ const Navbar = () => {
                         <a href="#">Lägg till ny vikt</a>
                     </li>
                     <li className='my-4'>
-                        <a href="#">Logga ut</a>
+                        <button onClick={logout}>Logga ut</button>
                     </li>
                 </ul>
             </nav>

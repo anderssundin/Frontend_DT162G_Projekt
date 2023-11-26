@@ -146,6 +146,10 @@ const Seven = ({onUpdate}) => {
 const abortChange = () =>{
     setEditValue(null);
 }
+
+//---------------------
+//LIST LAST SEVEN LOGS
+//---------------------
     const listItems = lastSeven && lastSeven.map((lastSeven) =>
         <div className="bg-secondary-green flex justify-around max-w-md my-2 py-2 rounded-md shadow-md font-bold w-full" key={lastSeven._id}>
             <div>{lastSeven.timestamp.slice(0, 10)}</div>

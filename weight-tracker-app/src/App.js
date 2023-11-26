@@ -5,6 +5,7 @@ import UserState from './store/userCredentials';
 import Login from "./pages/Login";
 import NoPage from "./pages/NoPage";
 import Dashboard from './pages/Dashboard';
+import AllLogs from './pages/AllLogs';
 function App() {
   return (
   <>
@@ -14,6 +15,7 @@ function App() {
    
       <Route index element ={<Login />} />
       <Route path='/dashboard' element= {<Dashboard />} />
+      <Route path='/all-logs' element= {<AllLogs />} />
       <Route path="*" element={<NoPage />} />
     
   </Routes>
