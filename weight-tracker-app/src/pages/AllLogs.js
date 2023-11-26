@@ -92,7 +92,9 @@ const deleteLog = async (e) => {
                     <Overview />
                     <section className="p-10 bg-slate-50 my-4 md:my-0 md:w-2/5 rounded-md shadow-md mx-auto">
                         <h1 className='text-2xl font-bold ml-5'>{userState.name}, här är dina loggar</h1>
-                        {listItems}
+                    
+                    {listItems}
+               
                         <Link to="/dashboard" className='text-xl text-cyan-600 text-center block'>Till Dashboard</Link>
                     </section>
                 </main>
