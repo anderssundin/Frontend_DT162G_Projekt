@@ -6,10 +6,7 @@ const Overview = ({ updateSignal }) => {
     const [weightProgress, setWeightProgress] = useState(null);
     const [userWeight, setUserWeight] = useState(0);
 
-    // useEffect för att observera ändringar i userState
-    useEffect(() => {
-        console.log("Uppdaterat userState:", userState);
-    }, [userState]); // Detta hook körs varje gång userState ändras
+  
 
     //------------------------------
     //Fetch data for latest weight
@@ -34,7 +31,7 @@ const Overview = ({ updateSignal }) => {
 
                 if (response.ok) {
                     const result = await response.json();
-                    console.log(result);
+                 
                     setUserWeight(result[0].weight);
                     
                     //-----------------------------

@@ -104,7 +104,7 @@ const Seven = ({onUpdate}) => {
 
         // Get new weight
         const weight = newEditWeight;
-        console.log(editID);
+       
 
         try {
             const data = {
@@ -161,7 +161,10 @@ const Seven = ({onUpdate}) => {
                 {editValue && <div className="absolute top-[25%]  left-1/4 w-1/2 h-20 bg-gray-50">
                     <form onSubmit={submitEditWeight}>
                         <label htmlFor="editWeight">Ändra vikt:</label>
-                        <input type="number" id="editWeight" defaultValue={editValue} onChange={setNewWeight} />
+                        <input type="number"
+                         id="editWeight" 
+                         defaultValue={editValue} 
+                         onChange={setNewWeight} />
                         <input type="submit" />
                     </form>
                 </div>}
