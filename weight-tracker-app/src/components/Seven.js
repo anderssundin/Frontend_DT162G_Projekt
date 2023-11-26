@@ -139,6 +139,13 @@ const Seven = ({onUpdate}) => {
         fetchData();
     }, [userState.email]);
 
+
+    //--------------
+    // ABORT CHANGE
+    //--------------
+const abortChange = () =>{
+    setEditValue(null);
+}
     const listItems = lastSeven && lastSeven.map((lastSeven) =>
         <div className="bg-secondary-green flex justify-around max-w-md my-2 py-2 rounded-md shadow-md font-bold w-full" key={lastSeven._id}>
             <div>{lastSeven.timestamp.slice(0, 10)}</div>
@@ -158,16 +165,23 @@ const Seven = ({onUpdate}) => {
             </div>
 
             <section>
-                {editValue && <div className="absolute top-[25%]  left-1/4 w-1/2 h-20 bg-gray-50">
-                    <form onSubmit={submitEditWeight}>
-                        <label htmlFor="editWeight">Ändra vikt:</label>
-                        <input type="number"
-                         id="editWeight" 
-                         defaultValue={editValue} 
-                         onChange={setNewWeight} />
-                        <input type="submit" />
-                    </form>
-                </div>}
+                {/* IF EDITVALUE IS TRUE, RENDER FORM */}
+            { editValue && <div className="absolute top-0 left-0 z-10 opacity-95 w-full h-full bg-gray-100">
+    <div className="bg-[#EDEBA0] w-1/3 z-20 ml-auto mr-auto mt-16 opacity-100 rounded-lg font-bold">
+      <form onSubmit={submitEditWeight} className="flex flex-col text-center p-10">
+        <label htmlFor="editWeight" className="mb-2">Ändra vikt:</label>
+        <input
+          type="number"
+          id="editWeight"
+          defaultValue={editValue}
+          onChange={setNewWeight}
+        />
+        <input type="submit" className="my-3 bg-secondary-green rounded shadow-sm p-2 hover:bg-primary-green hover:cursor-pointer" />
+        <button onClick={abortChange} className=" bg-secondary-green rounded shadow-sm p-2 hover:bg-primary-green">Avbryt</button>
+      </form>
+    </div>
+  </div>
+}
             </section>
         </>
     );
