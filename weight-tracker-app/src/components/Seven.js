@@ -3,7 +3,7 @@ import { Context } from '../store/userCredentials';
 import EditOutlinedIcon from '@mui/icons-material/EditOutlined';
 import DeleteForeverOutlinedIcon from '@mui/icons-material/DeleteForeverOutlined';
 
-const Seven = ({onUpdate}) => {
+const Seven = ({ onUpdate }) => {
     const [lastSeven, setLastSeven] = useState(null);
     const URL = 'http://localhost:3000/data/userseven';
     const deleteURL = 'http://localhost:3000/data/delete';
@@ -104,7 +104,7 @@ const Seven = ({onUpdate}) => {
 
         // Get new weight
         const weight = newEditWeight;
-       
+
 
         try {
             const data = {
@@ -143,13 +143,13 @@ const Seven = ({onUpdate}) => {
     //--------------
     // ABORT CHANGE
     //--------------
-const abortChange = () =>{
-    setEditValue(null);
-}
+    const abortChange = () => {
+        setEditValue(null);
+    }
 
-//---------------------
-//LIST LAST SEVEN LOGS
-//---------------------
+    //---------------------
+    //LIST LAST SEVEN LOGS
+    //---------------------
     const listItems = lastSeven && lastSeven.map((lastSeven) =>
         <div className="bg-secondary-green flex justify-around max-w-md my-2 py-2 rounded-md shadow-md font-bold w-full" key={lastSeven._id}>
             <div>{lastSeven.timestamp.slice(0, 10)}</div>
@@ -170,22 +170,22 @@ const abortChange = () =>{
 
             <section>
                 {/* IF EDITVALUE IS TRUE, RENDER FORM */}
-            { editValue && <div className="absolute top-0 left-0 z-10 opacity-95 w-full h-full bg-gray-100">
-    <div className="bg-[#EDEBA0] w-1/3 z-20 ml-auto mr-auto mt-16 opacity-100 rounded-lg font-bold">
-      <form onSubmit={submitEditWeight} className="flex flex-col text-center p-10">
-        <label htmlFor="editWeight" className="mb-2">Ändra vikt:</label>
-        <input
-          type="number"
-          id="editWeight"
-          defaultValue={editValue}
-          onChange={setNewWeight}
-        />
-        <input type="submit" className="my-3 bg-secondary-green rounded shadow-sm p-2 hover:bg-primary-green hover:cursor-pointer" />
-        <button onClick={abortChange} className=" bg-secondary-green rounded shadow-sm p-2 hover:bg-primary-green">Avbryt</button>
-      </form>
-    </div>
-  </div>
-}
+                {editValue && <div className="absolute top-0 left-0 z-10 opacity-95 w-full h-full bg-gray-100">
+                    <div className="bg-[#EDEBA0] w-1/3 z-20 ml-auto mr-auto mt-16 opacity-100 rounded-lg font-bold">
+                        <form onSubmit={submitEditWeight} className="flex flex-col text-center p-10">
+                            <label htmlFor="editWeight" className="mb-2">Ändra vikt:</label>
+                            <input
+                                type="number"
+                                id="editWeight"
+                                defaultValue={editValue}
+                                onChange={setNewWeight}
+                            />
+                            <input type="submit" className="my-3 bg-secondary-green rounded shadow-sm p-2 hover:bg-primary-green hover:cursor-pointer" />
+                            <button onClick={abortChange} className=" bg-secondary-green rounded shadow-sm p-2 hover:bg-primary-green">Avbryt</button>
+                        </form>
+                    </div>
+                </div>
+                }
             </section>
         </>
     );

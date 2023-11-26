@@ -27,7 +27,7 @@ const Login = () => {
             email: userEmail,
             password: password
         }
-        console.log(data);
+      
         try {
             const response = await fetch(url, {
 

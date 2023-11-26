@@ -6,6 +6,7 @@ import Login from "./pages/Login";
 import NoPage from "./pages/NoPage";
 import Dashboard from './pages/Dashboard';
 import AllLogs from './pages/AllLogs';
+import NewWeight from './pages/NewWeight';
 function App() {
   return (
   <>
@@ -16,6 +17,7 @@ function App() {
       <Route index element ={<Login />} />
       <Route path='/dashboard' element= {<Dashboard />} />
       <Route path='/all-logs' element= {<AllLogs />} />
+      <Route path='/new-weight' element= {<NewWeight />} />
       <Route path="*" element={<NoPage />} />
     
   </Routes>

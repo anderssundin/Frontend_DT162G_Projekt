@@ -34,7 +34,7 @@ const Navbar = () => {
                         <a href="#"> Mitt konto</a>
                     </li>
                     <li className='my-4'>
-                        <a href="#">Lägg till ny vikt</a>
+                       <Link to="/new-weight">Lägg till ny vikt</Link>
                     </li>
                     <li className='my-4'>
                         <button onClick={logout}>Logga ut</button>
