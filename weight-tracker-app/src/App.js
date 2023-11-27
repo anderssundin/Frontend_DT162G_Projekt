@@ -8,6 +8,7 @@ import Dashboard from './pages/Dashboard';
 import AllLogs from './pages/AllLogs';
 import NewWeight from './pages/NewWeight';
 import MyAccount from './pages/MyAccount';
+import Signup from './pages/Signup';
 function App() {
   return (
   <>
@@ -16,6 +17,7 @@ function App() {
   <Routes>
    
       <Route index element ={<Login />} />
+      <Route path='/signup' element= {<Signup />} />
       <Route path='/dashboard' element= {<Dashboard />} />
       <Route path='/account' element= {<MyAccount />} />
       <Route path='/all-logs' element= {<AllLogs />} />

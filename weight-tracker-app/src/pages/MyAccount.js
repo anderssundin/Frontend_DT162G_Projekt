@@ -35,8 +35,8 @@ const MyAccount = () => {
                     ...prevState,
                     startWeight: startW,
                     goalWeight: goalW
-                  }));
-                  setSuccess(true);
+                }));
+                setSuccess(true);
 
             } else {
                 console.log('Fel vid kontakt med databas');
@@ -59,15 +59,15 @@ const MyAccount = () => {
 
     return (
         <>
-            <div className=' bg-dashboard-grey flex relative w-full'>
-                <section className='relative left-0 top-0'>
+            <div className=' bg-dashboard-grey flex flex-col md:flex-row relative w-full'>
+                <section className='md:relative left-0 top-0'>
                     <Navbar />
                 </section>
                 <main className='flex flex-1 flex-col mt-20'>
-                    <section className="p-10 bg-slate-200 my-4 md:my-0 md:w-2/5 rounded-md shadow-md mx-auto">
+                    <section className="p-10 bg-slate-200 my-4 w-full md:my-0 md:w-2/5 rounded-md shadow-md mx-auto">
                         <h1 className='text-2xl font-bold ml-5'> Mitt konto</h1>
-{success && <p className=" text-green-600">Dina vikter är ändrade!</p>}
-                      <form onSubmit={addW} className='flex flex-col'>
+                        {success && <p className=" text-green-600">Dina vikter är ändrade!</p>}
+                        <form onSubmit={addW} className='flex flex-col'>
                             <label htmlFor="startW'" className='font-semibold text-sm mt-3'>Ange ny startvikt:</label>
                             <input type="number" id="startW" defaultValue={userState.startWeight} onChange={setStartValue} />
 

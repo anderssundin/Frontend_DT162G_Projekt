@@ -51,12 +51,12 @@ const NewWeight = () => {
 
     return (
         <>
-            <div className=' bg-dashboard-grey flex relative '>
-                <section className='relative left-0 top-0'>
+            <div className=' bg-dashboard-grey flex flex-col md:flex-row relative w-full '>
+                <section className='md:relative left-0 top-0'>
                     <Navbar />
                 </section>
                 <main className='flex flex-1 flex-col mt-20'>
-                    <section className="p-10 bg-slate-200 my-4 md:my-0 md:w-2/5 rounded-md shadow-md mx-auto">
+                    <section className="p-10 bg-slate-200 my-4 w-full md:my-0 md:w-2/5 rounded-md shadow-md mx-auto">
                         <h1 className='text-2xl font-bold ml-5'> Lägg till ny vikt</h1>
                        
                             <form onSubmit={addWeight} className='flex flex-col'>

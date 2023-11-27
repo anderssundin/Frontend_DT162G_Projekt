@@ -13,8 +13,8 @@ const Dashboard = () => {
 
     return (
         <>
-            <div className=' bg-dashboard-grey flex relative w-full'>
-                <section className='relative left-0 top-0'>
+            <div className=' bg-dashboard-grey flex flex-col md:flex-row relative w-full'>
+                <section className='md:relative left-0 top-0'>
                     <Navbar />
                 </section>
                 <main className='flex flex-1 flex-col'>

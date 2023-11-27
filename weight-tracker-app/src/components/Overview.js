@@ -53,7 +53,7 @@ const Overview = ({ updateSignal }) => {
 
     return (  
         <div className="w-full">
-            <section className="flex flex-col md:flex-row md:justify-around my-8">
+            <section className="flex flex-col md:flex-row md:justify-around my-8 ">
                 
                 <div className="p-5 bg-secondary-green rounded-lg px-20 shadow-md">
                     <p className=" font-bold">Startvikt</p>

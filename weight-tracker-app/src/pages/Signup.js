@@ -72,9 +72,9 @@ const Login = () => {
 
             <div className="login-container flex absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
                 <div className="login-signup bg-primary-green p-10 rounded-l-lg text-center">
-                    <h2 className=" text-3xl">Inget konto?</h2>
+                    <h2 className=" text-3xl">Redan skapat konto?</h2>
                     <div className="mt-4 text-blue-700">
-                    <Link to="/signup">Skapa konto</Link>
+                    <Link to="/">Logga in</Link>
                     </div>
                 </div>
                 <div className="login-form bg-secondary-green p-5 rounded-r-lg">
