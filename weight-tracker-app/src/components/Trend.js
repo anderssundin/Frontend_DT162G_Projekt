@@ -10,7 +10,7 @@ import {
     LineSeries
 } from 'react-vis';
 
-const Trend = ({ updateSignal, setUpdateSignal}) => {
+const Trend = ({ updateSignal }) => {
     const [data, setData] = useState([]);
     const URL = 'http://localhost:3000/data/userseven';
     const [userState, setUserState] = useContext(Context);
@@ -41,7 +41,7 @@ const Trend = ({ updateSignal, setUpdateSignal}) => {
                         y: item.weight
                     }));
                     setData(newData);
-                    setUpdateSignal(prevSignal => !prevSignal);
+                  
                 } else {
                     console.log('Fel vid kontakt med databas');
                 }
@@ -52,7 +52,7 @@ const Trend = ({ updateSignal, setUpdateSignal}) => {
    
         fetchData(); 
     
-    }, [userState.email, updateSignal , setUpdateSignal]);
+    }, [userState.email, updateSignal]);
 
   
     return (

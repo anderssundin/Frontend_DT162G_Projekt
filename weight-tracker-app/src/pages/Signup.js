@@ -10,6 +10,9 @@ const Login = () => {
     // Set constants to hold inputdata
     const [userEmail, setUserEmail] = useState("");
     const [password, setPassword] = useState("");
+    const [goalW, setGoalW] = useState(0);
+    const [startW, setStartW] = useState(0);
+    const [rePassword, setRePassword] = useState("");
     const [userState, setUserState] = useContext(Context);
 
 
@@ -20,15 +23,21 @@ const Login = () => {
         event.preventDefault();
 
 
-        const url = 'http://localhost:3000/users/login';
-        // Post request to backend usind fetch
+        const url = 'http://localhost:3000/users/newUser';
+        
 
-        const data = {
-            email: userEmail,
-            password: password
-        }
-      
+        
+         // Run code if passwords match
+        if (password === rePassword){
+            const data = {
+                email: userEmail,
+                password: password,
+                startWeight: startW,
+                goalWeight: goalW
+            }
         try {
+           
+          
             const response = await fetch(url, {
 
                 method: 'POST',
@@ -40,7 +49,7 @@ const Login = () => {
 
             if (response.ok) {
                 const result = await response.json();
-
+console.log(result);
                 // Set user state to hold new information
                 setUserState(prevState => ({
                     ...prevState,
@@ -60,7 +69,7 @@ const Login = () => {
         catch (error) {
             console.log(error);
         }
-
+    }
     }
 
     // useEffect för att observera ändringar i userState
@@ -91,8 +100,25 @@ const Login = () => {
                         {/* Ask for password and save input to constant */}
                         <input type="password" id="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)} />
                         <br />
+
+                        <label htmlFor="rePassword">Upprepa lösenord:</label>
+                        <br />
+                        {/* Ask for repeated password and save input to constant */}
+                        <input type="password" id="rePassword" placeholder="Password" onChange={(e) => setRePassword(e.target.value)} />
+                        <br />
+                        {/* Ask for start and goalweight */}
+                        <label htmlFor="start"> Startvikt:</label>
+                        <br />
+                        {/* Ask for repeated password and save input to constant */}
+                        <input type="number" id="start" placeholder="Din vikt" onChange={(e) => setStartW(e.target.value)} />
+                        <br />
+                        <label htmlFor="goal"> Målvikt:</label>
+                        <br />
+                        {/* Ask for repeated password and save input to constant */}
+                        <input type="number" id="goal" placeholder="Din målvikt" onChange={(e) => setGoalW(e.target.value)} />
+                        <br />
                         <div className="flex justify-center items-center ">
-                            <input type="submit" value={"Logga in"} className="text-sm bg-lime-600 rounded-sm px-2 py-1 mx-4 my-2 transition-all hover:cursor-pointer hover:bg-lime-500" />
+                            <input type="submit" value={"Skapa Konto"} className="text-sm bg-lime-600 rounded-sm px-2 py-1 mx-4 my-2 transition-all hover:cursor-pointer hover:bg-lime-500" />
                         </div>
                     </form>
                 </div>

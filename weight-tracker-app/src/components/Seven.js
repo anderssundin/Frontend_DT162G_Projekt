@@ -15,6 +15,7 @@ const Seven = ({ onUpdate }) => {
     //---------------------
     //FETCH LAST SEVEN
     //---------------------
+    
     const fetchData = async () => {
         try {
             const data = {
@@ -31,6 +32,7 @@ const Seven = ({ onUpdate }) => {
 
             if (response.ok) {
                 const result = await response.json();
+                onUpdate();
                 setLastSeven(result);
             } else {
                 console.log('Fel vid kontakt med databas');
@@ -40,7 +42,7 @@ const Seven = ({ onUpdate }) => {
         }
     };
 
-
+   
     //---------------
     // DELETE POST
     //---------------
@@ -62,6 +64,7 @@ const Seven = ({ onUpdate }) => {
 
             if (response.ok) {
                 // Update after deleteing log
+                onUpdate();
                 fetchData();
             } else {
                 console.log('Fel vid kontakt med databas');
