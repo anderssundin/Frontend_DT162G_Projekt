@@ -2,13 +2,14 @@ import { useState, useContext, useEffect } from "react";
 import { Context } from '../store/userCredentials';
 import { useNavigate, Link } from "react-router-dom";
 
-const Login = () => {
+const Signup = () => {
 
 
     // Constant for usehistory
     const navigate = useNavigate();
     // Set constants to hold inputdata
     const [userEmail, setUserEmail] = useState("");
+    const [userName, setUserName] = useState("");
     const [password, setPassword] = useState("");
     const [goalW, setGoalW] = useState(0);
     const [startW, setStartW] = useState(0);
@@ -24,52 +25,54 @@ const Login = () => {
 
 
         const url = 'http://localhost:3000/users/newUser';
-        
 
-        
-         // Run code if passwords match
-        if (password === rePassword){
+
+
+        // Run code if passwords match
+        if (password === rePassword) {
+            console.log('clicked');
             const data = {
                 email: userEmail,
+                name: userName,
                 password: password,
                 startWeight: startW,
                 goalWeight: goalW
             }
-        try {
-           
-          
-            const response = await fetch(url, {
+            try {
 
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json'
-                },
-                body: JSON.stringify(data)
-            });
 
-            if (response.ok) {
-                const result = await response.json();
-console.log(result);
-                // Set user state to hold new information
-                setUserState(prevState => ({
-                    ...prevState,
-                    name: result.name,
-                    email: result.email,
-                    startWeight: result.startWeight,
-                    goalWeight: result.goalWeight,
-                    isLoggedIn: true
-                }));
+                const response = await fetch(url, {
 
-                // Navigate user to dashboard
-                navigate("/dashboard");
-            } else {
-                console.log('Fel användarnamn eller lösernord');
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify(data)
+                });
+
+                if (response.ok) {
+                    const result = await response.json();
+                    console.log(result);
+                    // Set user state to hold new information
+                    setUserState(prevState => ({
+                        ...prevState,
+                        name: result.name,
+                        email: result.email,
+                        startWeight: result.startWeight,
+                        goalWeight: result.goalWeight,
+                        isLoggedIn: true
+                    }));
+
+                    // Navigate user to dashboard
+                    navigate("/dashboard");
+                } else {
+                    console.log('Fel användarnamn eller lösernord');
+                }
+            }
+            catch (error) {
+                console.log(error);
             }
         }
-        catch (error) {
-            console.log(error);
-        }
-    }
     }
 
     // useEffect för att observera ändringar i userState
@@ -83,12 +86,20 @@ console.log(result);
                 <div className="login-signup bg-primary-green p-10 rounded-l-lg text-center">
                     <h2 className=" text-3xl">Redan skapat konto?</h2>
                     <div className="mt-4 text-blue-700">
-                    <Link to="/">Logga in</Link>
+                        <Link to="/">Logga in</Link>
                     </div>
                 </div>
                 <div className="login-form bg-secondary-green p-5 rounded-r-lg">
 
                     <form onSubmit={handleSubmit}>
+
+                        <label htmlFor="name">Namn:</label>
+                        <br />
+                        {/* Ask for email and save input to constant */}
+                        <input type="text" id="name" placeholder="Namn" onChange={(e) => setUserName(e.target.value)} />
+                        <br />
+
+
                         <label htmlFor="email">Epost:</label>
                         <br />
                         {/* Ask for email and save input to constant */}
@@ -129,4 +140,4 @@ console.log(result);
     );
 }
 
-export default Login;
+export default Signup;
