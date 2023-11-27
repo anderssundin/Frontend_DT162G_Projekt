@@ -24,7 +24,7 @@ const Signup = () => {
         event.preventDefault();
 
 
-        const url = 'http://localhost:3000/users/newUser';
+        const url = 'https://weight-tracker-app.onrender.com/users/newUser';
 
 
 

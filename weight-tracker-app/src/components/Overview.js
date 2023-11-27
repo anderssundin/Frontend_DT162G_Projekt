@@ -12,7 +12,7 @@ const Overview = ({ updateSignal }) => {
     //Fetch data for latest weight
     //------------------------------
 
-    const url = 'http://localhost:3000/data'; 
+    const url = 'https://weight-tracker-app.onrender.com/data'; 
 
     useEffect(() => {
         const fetchData = async () => {

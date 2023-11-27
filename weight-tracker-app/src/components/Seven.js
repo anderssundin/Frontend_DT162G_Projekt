@@ -5,9 +5,9 @@ import DeleteForeverOutlinedIcon from '@mui/icons-material/DeleteForeverOutlined
 
 const Seven = ({ onUpdate }) => {
     const [lastSeven, setLastSeven] = useState(null);
-    const URL = 'http://localhost:3000/data/userseven';
-    const deleteURL = 'http://localhost:3000/data/delete';
-    const changeURL = 'http://localhost:3000/data/update';
+    const URL = 'https://weight-tracker-app.onrender.com/data/userseven';
+    const deleteURL = 'https://weight-tracker-app.onrender.com/data/delete';
+    const changeURL = 'https://weight-tracker-app.onrender.com/data/update';
     const [userState, setUserState] = useContext(Context);
     const [editValue, setEditValue] = useState(null);
     const [newEditWeight, setNewEditWeight] = useState(null);

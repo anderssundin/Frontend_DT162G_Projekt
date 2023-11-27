@@ -12,7 +12,7 @@ import {
 
 const Trend = ({ updateSignal }) => {
     const [data, setData] = useState([]);
-    const URL = 'http://localhost:3000/data/userseven';
+    const URL = 'https://weight-tracker-app.onrender.com/data/userseven';
     const [userState, setUserState] = useContext(Context);
     
     //---------------------

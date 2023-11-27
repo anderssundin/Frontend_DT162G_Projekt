@@ -7,7 +7,7 @@ const MyAccount = () => {
     const [startW, setStartW] = useState(userState.startWeight);
     const [goalW, setGoalW] = useState(userState.goalWeight);
     const [success, setSuccess] = useState(false);
-    const URL = 'http://localhost:3000/users/update';
+    const URL = 'https://weight-tracker-app.onrender.com/users/update';
     //-------------------------
     //ADD NEW WEIGHTS FOR USER
     //-------------------------

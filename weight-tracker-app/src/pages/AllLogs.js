@@ -7,10 +7,10 @@ import DeleteForeverOutlinedIcon from '@mui/icons-material/DeleteForeverOutlined
 
 const AllLogs = () => {
     
-    const URL = 'http://localhost:3000/data/userall'
+    const URL = 'https://weight-tracker-app.onrender.com/data/userall'
     const [userState, setUserState] = useContext(Context);
     const [allLogs, setAllLogs] = useState(null);
-    const deleteURL = 'http://localhost:3000/data/delete';
+    const deleteURL = 'https://weight-tracker-app.onrender.com/data/delete';
   
         const fetchAll = async () => {
             try {

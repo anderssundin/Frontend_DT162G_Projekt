@@ -20,7 +20,7 @@ const Login = () => {
         event.preventDefault();
 
 
-        const url = 'http://localhost:3000/users/login';
+        const url = 'https://weight-tracker-app.onrender.com/users/login';
         // Post request to backend usind fetch
 
         const data = {

@@ -7,7 +7,7 @@ import { useNavigate } from "react-router-dom";
 
 
 const NewWeight = () => {
-    const URL = 'http://localhost:3000/data/';
+    const URL = 'https://weight-tracker-app.onrender.com/data/';
     const [userState, setUserState] = useContext(Context);
     const [userWeight, setUserWeight] = useState(0);
     const navigate = useNavigate();
