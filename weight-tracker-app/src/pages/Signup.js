@@ -30,7 +30,7 @@ const Signup = () => {
 
         // Run code if passwords match
         if (password === rePassword) {
-            console.log('clicked');
+            
             const data = {
                 email: userEmail,
                 name: userName,
