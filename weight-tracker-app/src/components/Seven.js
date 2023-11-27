@@ -12,7 +12,7 @@ const Seven = ({ onUpdate }) => {
     const [editValue, setEditValue] = useState(null);
     const [newEditWeight, setNewEditWeight] = useState(null);
     const editIDRef = useRef(null)
-
+console.log(lastSeven);
     //---------------------
     //FETCH LAST SEVEN
     //---------------------

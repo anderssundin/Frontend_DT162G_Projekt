@@ -24,7 +24,8 @@ const NewWeight = () => {
         try {
             const data = {
                 userEmail: userState.email,
-                weight: userWeight
+                weight: userWeight,
+                timestamp: new Date()
             };
 
             const response = await fetch(URL, {
