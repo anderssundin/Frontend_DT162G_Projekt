@@ -49,7 +49,7 @@ const Overview = ({ updateSignal }) => {
 
         fetchData(); 
 
-    }, [userState.startWeight, userState.email, updateSignal]);
+    }, [userState.startWeight,userState.goalWeight, userState.email, updateSignal,]);
 
     return (  
         <div className="w-full">

@@ -27,11 +27,14 @@ const Navbar = () => {
            <div className=' bg-primary-green min-h-screen'>
             <nav className=' text-left ml-4'>
                 <ul>
+                <li className='my-4'>
+                    <Link to="/dashboard">Dashboard</Link>
+                    </li>
                     <li className='my-4'>
                     <Link to="/all-logs">Alla registreringar</Link>
                     </li>
                     <li className='my-4'>
-                        <a href="#"> Mitt konto</a>
+                       <Link to="/account">Mitt konto</Link>
                     </li>
                     <li className='my-4'>
                        <Link to="/new-weight">Lägg till ny vikt</Link>

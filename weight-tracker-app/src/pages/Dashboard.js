@@ -8,11 +8,12 @@ const Dashboard = () => {
 
     const triggerUpdate = () => {
         setUpdateSignal(!updateSignal);
+        
     }
 
     return (
         <>
-            <div className=' bg-dashboard-grey flex relative '>
+            <div className=' bg-dashboard-grey flex relative w-full'>
                 <section className='relative left-0 top-0'>
                     <Navbar />
                 </section>

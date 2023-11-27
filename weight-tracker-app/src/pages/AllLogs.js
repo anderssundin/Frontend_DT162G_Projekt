@@ -37,7 +37,10 @@ const AllLogs = () => {
             }
         };
     
-        fetchAll();
+        useEffect( () => {
+            fetchAll();
+        }, []);
+        
    
 
 
@@ -61,7 +64,7 @@ const deleteLog = async (e) => {
             });
 
             if (response.ok) {
-                // Update after deleteing log
+                // Update after deleting log
                 fetchAll();
             } else {
                 console.log('Fel vid kontakt med databas');
