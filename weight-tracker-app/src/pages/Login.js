@@ -11,7 +11,7 @@ const Login = () => {
     const [userEmail, setUserEmail] = useState("");
     const [password, setPassword] = useState("");
     const [userState, setUserState] = useContext(Context);
-
+    const [wrongCredentials, SetWrongCredentials] = useState(false);
 
 
 
@@ -27,7 +27,7 @@ const Login = () => {
             email: userEmail,
             password: password
         }
-      
+
         try {
             const response = await fetch(url, {
 
@@ -55,6 +55,7 @@ const Login = () => {
                 navigate("/dashboard");
             } else {
                 console.log('Fel användarnamn eller lösernord');
+                SetWrongCredentials(true);
             }
         }
         catch (error) {
@@ -74,7 +75,7 @@ const Login = () => {
                 <div className="login-signup bg-primary-green p-10 rounded-l-lg text-center">
                     <h2 className=" text-3xl">Inget konto?</h2>
                     <div className="mt-4 text-blue-700">
-                    <Link to="/signup">Skapa konto</Link>
+                        <Link to="/signup">Skapa konto</Link>
                     </div>
                 </div>
                 <div className="login-form bg-secondary-green p-5 rounded-r-lg">
@@ -95,6 +96,7 @@ const Login = () => {
                             <input type="submit" value={"Logga in"} className="text-sm bg-lime-600 rounded-sm px-2 py-1 mx-4 my-2 transition-all hover:cursor-pointer hover:bg-lime-500" />
                         </div>
                     </form>
+                    {wrongCredentials && <p className=" text-red-600">Fel användarnamn/lösenord</p>}
                 </div>
 
             </div>

@@ -15,7 +15,7 @@ const Signup = () => {
     const [startW, setStartW] = useState(0);
     const [rePassword, setRePassword] = useState("");
     const [userState, setUserState] = useContext(Context);
-
+    const [badCredentials, setBadCredentials] = useState(false);
 
 
 
@@ -30,7 +30,7 @@ const Signup = () => {
 
         // Run code if passwords match
         if (password === rePassword) {
-            
+
             const data = {
                 email: userEmail,
                 name: userName,
@@ -66,7 +66,8 @@ const Signup = () => {
                     // Navigate user to dashboard
                     navigate("/dashboard");
                 } else {
-                    console.log('Fel användarnamn eller lösernord');
+                    console.log('Användarnamn används redan');
+                    setBadCredentials(true);
                 }
             }
             catch (error) {
@@ -132,6 +133,7 @@ const Signup = () => {
                             <input type="submit" value={"Skapa Konto"} className="text-sm bg-lime-600 rounded-sm px-2 py-1 mx-4 my-2 transition-all hover:cursor-pointer hover:bg-lime-500" />
                         </div>
                     </form>
+                    {badCredentials && <p className=" text-red-600">Eposten redan registrerad, välj annan epost</p>}
                 </div>
 
             </div>
