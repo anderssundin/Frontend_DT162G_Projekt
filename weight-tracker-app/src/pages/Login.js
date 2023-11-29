@@ -1,7 +1,7 @@
 import { useState, useContext, useEffect } from "react";
 import { Context } from '../store/userCredentials';
 import { useNavigate, Link } from "react-router-dom";
-
+import logo from '../images/logotyp.jpg';
 const Login = () => {
 
 
@@ -71,14 +71,18 @@ const Login = () => {
     return (
         <>
 
-            <div className="login-container flex absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2">
-                <div className="login-signup bg-primary-green p-10 rounded-l-lg text-center">
+            <div className="login-container flex flex-col absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 shadow-md">
+              <div className=" bg-primary-green  rounded-t-lg">
+               <img src={logo} alt="logotyp" className="max-w-[200px] mx-auto"/>
+               </div>
+               <div className=" flex flex-row">
+                <div className="login-signup bg-primary-green p-10 rounded-bl-lg text-center">
                     <h2 className=" text-3xl">Inget konto?</h2>
                     <div className="mt-4 text-blue-700">
                         <Link to="/signup">Skapa konto</Link>
                     </div>
                 </div>
-                <div className="login-form bg-secondary-green p-5 rounded-r-lg">
+                <div className="login-form bg-secondary-green p-5 rounded-br-lg">
 
                     <form onSubmit={handleSubmit}>
                         <label htmlFor="email">Epost:</label>
@@ -98,7 +102,7 @@ const Login = () => {
                     </form>
                     {wrongCredentials && <p className=" text-red-600">Fel användarnamn/lösenord</p>}
                 </div>
-
+                </div>
             </div>
 
         </>
